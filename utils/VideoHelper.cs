@@ -1,12 +1,7 @@
 ﻿using Allure.Net.Commons;
 using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MVPAutomation.utils
+namespace MVPAutomation.Utils
 {
     public static class VideoHelper
     {

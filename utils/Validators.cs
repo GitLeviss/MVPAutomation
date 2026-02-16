@@ -1,24 +1,18 @@
 ﻿using Allure.NUnit.Attributes;
 using Microsoft.Playwright;
 using static Microsoft.Playwright.Assertions;
-using MVPAutomation.interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MVPAutomation.Interfaces;
 
-namespace MVPAutomation.utils
+namespace MVPAutomation.Utils
 {
-    public class Validator : IValidator
+    public class Validators : IValidator
     {
         private readonly IValidator _validator;
         private readonly IPage _page;
 
-        public Validator(IPage page, IValidator validator)
+        public Validators(IPage page)
         {
             this._page = page;
-            this._validator = validator;
         }
 
         [AllureStep("Validate Url - on step: {step}")]

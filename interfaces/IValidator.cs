@@ -1,4 +1,4 @@
-﻿namespace MVPAutomation.interfaces
+﻿namespace MVPAutomation.Interfaces
 {
     public interface IValidator
     {

@@ -1,25 +1,18 @@
 ﻿using Allure.NUnit.Attributes;
 using Microsoft.Playwright;
 using static Microsoft.Playwright.Assertions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MVPAutomation.interfaces;
+using MVPAutomation.Interfaces;
 
-namespace MVPAutomation.utils
+namespace MVPAutomation.Utils
 {
     public class Actions : IActions
     {
 
         private readonly IPage _page;
-        private readonly IActions _action;
 
-        public Actions(IPage page, IActions actions)
+        public Actions(IPage page)
         {
-            this._page = page;            
-            this._action = actions;
+            this._page = page;        
         }
 
         [AllureStep("Write: '{text}' — on step: {step}")]

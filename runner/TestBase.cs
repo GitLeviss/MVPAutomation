@@ -1,16 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Playwright;
-using MVPAutomation.utils;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MVPAutomation.Utils;
 
-namespace MVPAutomation.runner
+namespace MVPAutomation.Runner
 {
-    internal class TestBase
+    public class TestBase
     {
         protected IPage _page;
         private IPlaywright? _playwright;
@@ -28,7 +22,7 @@ namespace MVPAutomation.runner
             _playwright = await Playwright.CreateAsync();
             var launchOptions = new BrowserTypeLaunchOptions
             {
-                Headless = true
+                Headless = false
             };
 
             _browser = await _playwright.Chromium.LaunchAsync(launchOptions);
@@ -54,7 +48,7 @@ namespace MVPAutomation.runner
                 .Build();
 
             var env = Environment.GetEnvironmentVariable("APP_LINK");
-            var appLink = config["Links:App"] ?? env;
+            var appLink = config["Links:tricentis"] ?? env;
             _page.DOMContentLoaded += async (sender, e) =>
             {
                 await _page.AddStyleTagAsync(new PageAddStyleTagOptions
@@ -72,6 +66,57 @@ namespace MVPAutomation.runner
             return _page;
 
         }
+
+        protected async Task CloseBrowserAsync()
+        {
+            var status = TestContext.CurrentContext.Result.Outcome.Status.ToString();
+
+            try
+            {
+                if (_page != null)
+                {
+                    await VideoUtils.ForceVideoFinalization(_page);
+                }
+
+                if (_context != null)
+                {
+                    await _context.CloseAsync();
+                }
+
+                if (_page != null)
+                {
+                    await VideoHelper.AttachVideoAsync(_page, status);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao processar vídeo no teardown: {ex.Message}");
+            }
+            finally
+            {
+                try
+                {
+                    if (_browser != null)
+                    {
+                        await _browser.CloseAsync();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao fechar browser: {ex.Message}");
+                }
+
+                try
+                {
+                    _playwright?.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao dispose playwright: {ex.Message}");
+                }
+            }
+        }
+
 
 
     }
