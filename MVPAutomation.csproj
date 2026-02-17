@@ -49,8 +49,4 @@
     <Using Include="System.Threading.Tasks" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NovaPasta\" />
-  </ItemGroup>
-
 </Project>

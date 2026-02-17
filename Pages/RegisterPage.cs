@@ -2,29 +2,17 @@ using Microsoft.Playwright;
 using MVPAutomation.Data;
 using MVPAutomation.Interfaces;
 using MVPAutomation.Locators;
-using MVPAutomation.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MVPAutomation.Pages
 {
-    public class RegisterPage
+    public class RegisterPage : BasePage
     {
-        private IPage _page;
-        private readonly IActions _actions;
-        private readonly IValidator _validator;
         RegisterLocators _el = new RegisterLocators();
         HomePageLocators _home = new HomePageLocators();
         RegisterData _data = new RegisterData();
 
-        public RegisterPage(IPage page, IActions actions, IValidator validator)
+        public RegisterPage(IPage page, IActions actions) : base(page, actions)
         {
-            _page = page;
-            _actions = actions;
-            _validator = validator;
         }
 
         public async Task ClickOnRegisterButton()
@@ -49,3 +37,4 @@ namespace MVPAutomation.Pages
 
     }
 }
+
