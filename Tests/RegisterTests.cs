@@ -1,4 +1,4 @@
-﻿using Allure.Net.Commons;
+using Allure.Net.Commons;
 using Allure.NUnit;
 using Allure.NUnit.Attributes;
 using Microsoft.Playwright;
@@ -23,6 +23,7 @@ namespace MVPAutomation.Tests
     public class RegisterTests : TestBase
     {
         private IValidator _validator;
+        private IActions _actions;
 
         [SetUp]
         [AllureBefore]
@@ -30,6 +31,7 @@ namespace MVPAutomation.Tests
         {
             await OpenBrowserAsync();
             _validator = new Validators(_page);
+            _actions = new Actions(_page);
         }
 
         [TearDown]
@@ -43,7 +45,7 @@ namespace MVPAutomation.Tests
         [AllureName("Deve registrar um usuário com sucessoDeve registrar um usuário com sucesso")]
         public async Task ShouldRegisterUserSuccessfull()
         {
-            var registerPage = new RegisterPage(_page);            
+            var registerPage = new RegisterPage(_page, _actions, _validator);            
             await registerPage.ClickOnRegisterButton();
             await registerPage.FillRegisterForm();
             await registerPage.ClickSubmitForm();

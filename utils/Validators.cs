@@ -7,7 +7,6 @@ namespace MVPAutomation.Utils
 {
     public class Validators : IValidator
     {
-        private readonly IValidator _validator;
         private readonly IPage _page;
 
         public Validators(IPage page)

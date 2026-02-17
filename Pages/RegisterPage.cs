@@ -1,4 +1,4 @@
-﻿using Microsoft.Playwright;
+using Microsoft.Playwright;
 using MVPAutomation.Data;
 using MVPAutomation.Interfaces;
 using MVPAutomation.Locators;
@@ -15,14 +15,16 @@ namespace MVPAutomation.Pages
     {
         private IPage _page;
         private readonly IActions _actions;
+        private readonly IValidator _validator;
         RegisterLocators _el = new RegisterLocators();
         HomePageLocators _home = new HomePageLocators();
         RegisterData _data = new RegisterData();
 
-        public RegisterPage(IPage page)
+        public RegisterPage(IPage page, IActions actions, IValidator validator)
         {
-            this._page = page;
-            _actions = new Actions(page);
+            _page = page;
+            _actions = actions;
+            _validator = validator;
         }
 
         public async Task ClickOnRegisterButton()
