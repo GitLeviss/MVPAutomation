@@ -604,7 +604,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 <div align="center">
 
-**Desenvolvido com ❤️ pela Equipe de QA**
+**Desenvolvido pelo Leviss 🤘**
 
 **⭐ Se este projeto foi útil, dê uma estrela! ⭐**
 
