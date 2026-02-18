@@ -1,0 +1,1 @@
+Vídeo anexado: MVPAutomation_Tests_RegisterTests_ShouldntRegisterUserWithoutNameAndLastName_Passed_20260217_223948.webm (321459 bytes)
