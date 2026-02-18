@@ -11,9 +11,9 @@ namespace MVPAutomation.Data
 
         public string FirstsName { get; set; } = "User";
         public string LastsName { get; set; } = "Test " + new Random().Next(0, 9999);
+        public string Password { get; set; } = "Test@123";
+        public string ConfirmPassword { get; set; } = "Test@123";
         public static string Email { get; set; } = "email" + new Random().Next(0, 9999) + "@teste.com";
-        public string Password { get; } = "Test@123";
-        public string ConfirmPassword { get; } = "Test@123";
 
 
     }

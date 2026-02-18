@@ -13,7 +13,7 @@ namespace MVPAutomation.Tests
 
         public IValidator Validator => _validator;
 
-        [SetUp]
+        [SetUp, Order(1)]
         [AllureBefore]
         public async Task BaseSetup()
         {

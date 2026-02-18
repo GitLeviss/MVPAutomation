@@ -11,8 +11,9 @@ namespace MVPAutomation.Pages
         HomePageLocators _home = new HomePageLocators();
         RegisterData _data = new RegisterData();
 
-        public RegisterPage(IPage page, IActions actions) : base(page, actions)
+        public RegisterPage(IPage page, IActions actions, RegisterData data = null) : base(page, actions)
         {
+            _data = data ?? new RegisterData();
         }
 
         public async Task ClickOnRegisterButton()
