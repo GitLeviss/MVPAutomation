@@ -17,6 +17,8 @@
 
 ## 📋 Índice
 
+-[Link Relatório do Allure: https://gitleviss.github.io/MVPAutomation/allure-report/]
+
 - [🎯 Sobre o Projeto](#-sobre-o-projeto)
 - [🚀 Tecnologias e Ferramentas](#-tecnologias-e-ferramentas)
 - [🏗️ Arquitetura](#️-arquitetura)
