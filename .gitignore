@@ -1,9 +1,5 @@
-﻿node_modules/
-allure-results/
-bin/
-obj/
-.playwright/
-bin/
-.vs/
-allure-report/
-appsettings.json
+*
+!.gitignore
+!allure-results/
+!allure-report/
+!*/
