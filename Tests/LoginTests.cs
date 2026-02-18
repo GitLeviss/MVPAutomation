@@ -69,6 +69,12 @@ namespace MVPAutomation.Tests
             await _validator.GetByTextToBeVisibleAsync("The credentials provided are incorrect"
                 , "Validate if Error message is visible on screen");
         }
+        [Test, Order(5)]
+        [AllureName("Shouldn Fail Test!")]
+        public void FailTest()
+        {
+            Assert.Fail("Example of fail test");
+        }
 
 
     }
