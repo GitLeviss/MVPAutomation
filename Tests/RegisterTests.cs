@@ -55,10 +55,8 @@ namespace MVPAutomation.Tests
             await registerPage.ClickOnRegisterButton();
             await registerPage.FillRegisterForm();
             await registerPage.ClickSubmitForm();
-            await _validator.GetByTextToBeVisibleAsync("First name is required."
-                , "Validate if error message of first name is mandatory is visible on screen of user");
-            await _validator.GetByTextToBeVisibleAsync("Last name is required."
-                , "Validate if error message of last name is mandatory is visible on screen of user");
+            await _validator.GetByTextToBeVisibleAsync("The password and confirmation password do not match."
+                , "Validate if error message of password is different is visible on screen of user");
         }
     }
 }

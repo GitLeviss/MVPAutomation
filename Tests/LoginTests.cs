@@ -1,4 +1,6 @@
-﻿using Allure.NUnit.Attributes;
+﻿using Allure.Net.Commons;
+using Allure.NUnit;
+using Allure.NUnit.Attributes;
 using MVPAutomation.Data;
 using MVPAutomation.Pages;
 using System;
@@ -9,6 +11,11 @@ using System.Threading.Tasks;
 
 namespace MVPAutomation.Tests
 {
+    [AllureOwner("Levi QA")]
+    [AllureNUnit]
+    [Parallelizable(ParallelScope.Self)]
+    [AllureSeverity(SeverityLevel.critical)]
+    [AllureSuite("Login UI")]
     public class LoginTests : BaseTest
     {
         [Test, Order(1)]
